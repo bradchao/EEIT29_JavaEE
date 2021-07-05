@@ -18,17 +18,32 @@ public class Brad05 extends HttpServlet {
 		String passwd = request.getParameter("passwd");
 		String gender = request.getParameter("gender");
 		String[] favorities = request.getParameterValues("favority");
+		String area = request.getParameter("area");
 		
 		System.out.println("account = " + account);
 		System.out.println("passwd = " + passwd);
 		System.out.println("gender = " + gender);
 		
 		System.out.println("Favorities:");
-		for (String favority : favorities) {
-			System.out.println(favoritiesName[Integer.parseInt(favority)]);
+		if (favorities != null) {
+			for (String favority : favorities) {
+				System.out.println(favoritiesName[Integer.parseInt(favority)]);
+			}
 		}
+		
+		System.out.println("area = " + area);
 		
 		System.out.println("----");
 		
 	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+		//super.doPost(req, resp);
+		System.out.println("doPost");
+	}
+	
+	
+	
+	
 }
