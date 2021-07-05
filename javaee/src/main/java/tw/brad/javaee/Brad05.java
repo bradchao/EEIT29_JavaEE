@@ -41,6 +41,7 @@ public class Brad05 extends HttpServlet {
 			throws ServletException, IOException {
 		//super.doPost(req, resp);
 		System.out.println("doPost");
+		doGet(req, resp);
 	}
 	
 	
