@@ -11,12 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 public class Brad05 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		
+
 		String account = request.getParameter("account");
 		String passwd = request.getParameter("passwd");
+		String gender = request.getParameter("gender");
 		
-		System.out.println(account);
-		System.out.println(passwd);
+		System.out.println("account = " + account);
+		System.out.println("passwd = " + passwd);
+		System.out.println("gender = " + gender);
 		
 	}
 }
