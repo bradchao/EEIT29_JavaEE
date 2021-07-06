@@ -18,6 +18,8 @@ public class Brad08 extends HttpServlet {
 		String y = request.getParameter("y");
 		String op = request.getParameter("op");
 
+		if (op == null) op = "+";
+		
 		String result = "";
 		int intX, intY, intR, intR2;
 		intX = intY = intR = intR2 = 0;
@@ -58,10 +60,10 @@ public class Brad08 extends HttpServlet {
 			.append("<form action='Brad08' method='get'>\n")
 			.append("	<input type='number' name='x' value='" + intX + "' />\n")
 			.append("	<select name='op'>\n")
-			.append("		<option>+</option>\n")
-			.append("		<option>-</option>\n")
-			.append("		<option selected>x</option>\n")
-			.append("		<option>/</option>\n")
+			.append("		<option " + (op.equals("+")?"selected":"") + ">+</option>\n")
+			.append("		<option " + (op.equals("-")?"selected":"") + ">-</option>\n")
+			.append("		<option " + (op.equals("x")?"selected":"") + ">x</option>\n")
+			.append("		<option " + (op.equals("/")?"selected":"") + ">/</option>\n")
 			.append("	</select>\n")
 			.append("	<input type='number' name='y' value='" + intY + "' />\n")
 			.append("	<input type='submit' value='=' />\n")
