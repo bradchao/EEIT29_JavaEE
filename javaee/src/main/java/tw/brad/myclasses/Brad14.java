@@ -18,6 +18,7 @@ public class Brad14 {
 			case 2 : return x - y;
 			case 3 : return x * y;
 			case 4 : return x*1.0 / y;
+			case 5 : return Math.pow(x, y);
 			default: return 0;
 		}
 	}

@@ -26,11 +26,17 @@ public class Brad15 extends HttpServlet {
 		String result = request.getParameter("result");
 		String vfile = request.getParameter("vfile");
 		
+		String op1 = op.equals("1")?"selected":"";
+		String op2 = op.equals("2")?"selected":"";
+		String op3 = op.equals("3")?"selected":"";
+		String op4 = op.equals("4")?"selected":"";
+		String op5 = op.equals("5")?"selected":"";
+		
 		String htmlString = loadView(vfile + ".html");
 		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.print(String.format(htmlString, x, y, result));
+		out.print(String.format(htmlString, x, op1, op2, op3, op4, op5, y, result));
 		response.flushBuffer();
 	}
 	
