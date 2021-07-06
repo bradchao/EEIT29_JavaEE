@@ -16,7 +16,7 @@ public class Brad11 extends HttpServlet {
 			throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Brad10");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Brad12");
 		
 		
 		response.setContentType("text/html; charset=UTF-8");

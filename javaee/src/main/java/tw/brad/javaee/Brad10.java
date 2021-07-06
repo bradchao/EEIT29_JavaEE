@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 public class Brad10 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		response.getWriter().print("Hello, World");
+		
+		String name = request.getParameter("name");
+		
+		response.getWriter().print("Hello, " + name + ":" + (int)(Math.random()*49+1)) ;
 		
 	}
 

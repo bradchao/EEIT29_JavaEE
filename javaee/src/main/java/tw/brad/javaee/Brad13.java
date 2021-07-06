@@ -7,12 +7,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Brad12")
-public class Brad12 extends HttpServlet {
+/**
+ * Servlet implementation class Brad13
+ */
+@WebServlet("/Brad13")
+public class Brad13 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		response.getWriter().print("Hello, World:12");
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		// 1. 預備
+		String x = request.getParameter("x");
+		String y = request.getParameter("y");
+		String op = request.getParameter("op");
+		
+		
+		// 2. Modle
+		
+		
+		
+		
 		
 	}
-
 }
