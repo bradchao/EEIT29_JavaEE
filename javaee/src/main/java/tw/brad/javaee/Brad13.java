@@ -26,14 +26,18 @@ public class Brad13 extends HttpServlet {
 		String y = request.getParameter("y");
 		String op = request.getParameter("op");
 		
+		if (x == null) x ="0";
+		if (y == null) y ="0";
 		
 		// 2. Modle
-		Brad14 modle = new Brad14(x, y, op);
+		Brad14 modle = new Brad14(x, y, "1");
 		double result = modle.operation(); 
 		
 		// 3. View => Viewer
+		String url = String.format(
+			"Brad15?x=%s&y=%s&op=%s&result=%s&vfile=%s", x,y,op,result, "view1");
 		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("Brad15");
+				request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		
 		
