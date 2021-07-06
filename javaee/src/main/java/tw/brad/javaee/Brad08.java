@@ -19,11 +19,12 @@ public class Brad08 extends HttpServlet {
 		String op = request.getParameter("op");
 
 		String result = "";
+		int intX, intY, intR, intR2;
+		intX = intY = intR = intR2 = 0;
 		
 		try {
-			int intX = Integer.parseInt(x);
-			int intY = Integer.parseInt(y);
-			int intR = 0, intR2 = 0;
+			intX = Integer.parseInt(x);
+			intY = Integer.parseInt(y);
 			
 			switch(op) {
 				case "+": 
@@ -55,14 +56,14 @@ public class Brad08 extends HttpServlet {
 		out.append("<h1>Brad Big Company</h1>\n")
 			.append("<hr />\n")
 			.append("<form action='Brad08' method='get'>\n")
-			.append("	<input type='number' name='x' />\n")
+			.append("	<input type='number' name='x' value='" + intX + "' />\n")
 			.append("	<select name='op'>\n")
 			.append("		<option>+</option>\n")
 			.append("		<option>-</option>\n")
-			.append("		<option>x</option>\n")
+			.append("		<option selected>x</option>\n")
 			.append("		<option>/</option>\n")
 			.append("	</select>\n")
-			.append("	<input type='number' name='y' />\n")
+			.append("	<input type='number' name='y' value='" + intY + "' />\n")
 			.append("	<input type='submit' value='=' />\n")
 			.append(result)
 			.append("</form>\n");

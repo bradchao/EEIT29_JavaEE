@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Brad06")
 public class Brad06 extends HttpServlet {
-	// 老師我執行06.java不是出現空白 是500
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
