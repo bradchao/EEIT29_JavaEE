@@ -18,16 +18,22 @@ public class Brad06 extends HttpServlet {
 		
 		String x = request.getParameter("x");
 		String y = request.getParameter("y");
+		String op = request.getParameter("op");
 		
 		int intX = Integer.parseInt(x);
 		int intY = Integer.parseInt(y);
 		int intR = intX + intY;
-		System.out.println(String.format("%d + %d = %d", intX, intY, intR));
+		System.out.println(String.format("%d %s %d = %d", intX, op, intY, intR));
 		
 		
 		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		out.println(String.format("%d + %d = %d", intX, intY, intR));
+		
+		try (PrintWriter out = response.getWriter()){
+			out.println(String.format("%d + %d = %d", intX, intY, intR));
+		}
+		
+		response.flushBuffer();
+		
 		
 		
 	}
