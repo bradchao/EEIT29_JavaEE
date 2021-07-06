@@ -1,14 +1,18 @@
 package tw.brad.javaee;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import tw.brad.myclasses.Brad14;
+
 /**
- * Servlet implementation class Brad13
+ * Servlet implementation class Brad13 => 控制器
  */
 @WebServlet("/Brad13")
 public class Brad13 extends HttpServlet {
@@ -24,9 +28,13 @@ public class Brad13 extends HttpServlet {
 		
 		
 		// 2. Modle
+		Brad14 modle = new Brad14(x, y, op);
+		double result = modle.operation(); 
 		
-		
-		
+		// 3. View => Viewer
+		RequestDispatcher dispatcher = 
+				request.getRequestDispatcher("Brad15");
+		dispatcher.forward(request, response);
 		
 		
 	}

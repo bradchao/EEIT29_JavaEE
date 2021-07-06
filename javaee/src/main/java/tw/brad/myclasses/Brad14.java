@@ -1,5 +1,8 @@
 package tw.brad.myclasses;
 
+/*
+ * Modle
+ */
 public class Brad14 {
 	private int x, y, op;
 	
