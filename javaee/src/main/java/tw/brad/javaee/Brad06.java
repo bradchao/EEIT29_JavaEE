@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Brad06")
 public class Brad06 extends HttpServlet {
-	// 後端14行的request可以再解釋一遍嗎     19行是怎麼拿到 x y 的值呢 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
