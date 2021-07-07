@@ -18,6 +18,14 @@ public class Brad18 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
+		float rate = 0;
+		String strRate = request.getParameter("rate");
+		if (strRate != null) {
+			try {
+				rate = Float.parseFloat(strRate);
+			}catch(Exception e) {}
+		}
+		
 		response.setContentType("image/jpeg");
 		
 		// 1. 畫布
@@ -28,7 +36,7 @@ public class Brad18 extends HttpServlet {
 		g2d.setColor(Color.YELLOW);
 		g2d.fillRect(0, 0, bimg.getWidth(), bimg.getHeight());
 		g2d.setColor(Color.RED);
-		g2d.fillRect(0, 0, bimg.getWidth()/2, bimg.getHeight());
+		g2d.fillRect(0, 0, (int)(bimg.getWidth()*rate/100), bimg.getHeight());
 		
 		// 3. 輸出 => 網頁, 存檔
 		OutputStream out = response.getOutputStream();
