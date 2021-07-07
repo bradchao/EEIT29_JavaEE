@@ -1,6 +1,9 @@
 package tw.brad.javaee;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -23,9 +26,19 @@ public class Brad16 extends HttpServlet {
 			String name = part.getName();
 			String sname = part.getSubmittedFileName();
 			System.out.println(name + ":" + sname);
+			
+			if (part.getSize() > 0) {
+				part.write(createFileName());
+			}
+			
 		}
-		
-		
+	}
+	
+	private String createFileName() {
+		SimpleDateFormat sdf =
+			new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_SSS");
+		String filename = "Icon_" + sdf.format(new Date());
+		return filename;
 	}
 
 }
