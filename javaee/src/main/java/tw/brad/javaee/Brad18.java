@@ -1,5 +1,6 @@
 package tw.brad.javaee;
 
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// 老師，請問這裡圖片的src怎麼抓的到這張照片? 是要依循資料夾存放路徑尋找嗎?
+// 之前寫html 呼img 要從../返回再從資料夾找到該圖檔，有疑問的點是怎麼從html直接叫到.java，路徑
 @WebServlet("/Brad18")
 public class Brad18 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
