@@ -35,10 +35,16 @@ public class Brad21 extends HttpServlet {
 		}
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+		String account = request.getParameter("account");
+		String passwd = request.getParameter("passwd");
+		String realname = request.getParameter("realname");
+		
 		try {
-			int row = addMember("brad", "123456", "Brad Chao");
+			int row = addMember(account, passwd, realname);
 			System.out.println(row);
 		}catch(Exception e) {
 			System.out.println(e.toString());
