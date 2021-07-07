@@ -31,6 +31,7 @@ public class Brad17 extends HttpServlet {
 			String sname = part.getSubmittedFileName();
 			System.out.println(type + ":" + name + ":" + sname);
 			
+			// 請問一下 為什麼要先有34行的判斷 不能直接用35行的判斷就好?
 			if (name.equals("upload")) {
 				if (sname.length() == 0) continue;
 				part.write(createFileName(account));
