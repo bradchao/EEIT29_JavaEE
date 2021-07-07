@@ -27,6 +27,8 @@ public class Brad18 extends HttpServlet {
 		// 2. 作畫 => 記憶體
 		g2d.setColor(Color.YELLOW);
 		g2d.fillRect(0, 0, bimg.getWidth(), bimg.getHeight());
+		g2d.setColor(Color.RED);
+		g2d.fillRect(0, 0, bimg.getWidth()/2, bimg.getHeight());
 		
 		// 3. 輸出 => 網頁, 存檔
 		OutputStream out = response.getOutputStream();
