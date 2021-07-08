@@ -18,7 +18,7 @@ import tw.brad.myclasses.BCrypt;
 @WebServlet("/Brad22")
 public class Brad22 extends HttpServlet {
 	private Connection conn;
-	
+	// java.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
 	public Brad22() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
