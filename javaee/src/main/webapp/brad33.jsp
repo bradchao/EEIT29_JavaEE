@@ -13,52 +13,18 @@
 
 	<table border="1" width="100%">
 		<tr>
-			<td>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-			</td>
-			<td>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-			
-			</td>
-			<td>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-			</td>
-			<td>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-				2 x 1 = 2<br/>
-			
-			</td>
+			<%
+				String format = "%d x %d = %d<br/>";
+				int result =0;
+				for (int j=2; j<=5; j++){
+					out.println("<td>");
+					for (int i = 1; i<=9; i++){
+						result = j * i;
+						out.println(String.format(format, j, i, result));
+					}
+					out.println("</td>");
+				}
+			%>
 		</tr>
 		<tr>
 			<td>
