@@ -34,17 +34,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Brad Big Company</title>
+<script>
+	function checkFormData(){
+		var ret = true;
+		let y = document.getElementById('y').value;
+		if (y == 0){
+			ret = false;
+			alert('別鬧了...');
+		}
+		return ret;
+	}
+</script>
 </head>
+
 <body>
-<form action="brad36.jsp">
-	<input type="number" name="x" value="<%= strX %>" />
+<form action="brad36.jsp" onsubmit="return checkFormData();" >
+	<input type="number" id="x" name="x" value="<%= strX %>" />
 	<select name="op">
 		<option value="1" <% out.println(op.equals("1")?"selected":""); %>>+</option>
 		<option value="2" <% out.println(op.equals("2")?"selected":""); %>>-</option>
 		<option value="3" <% out.println(op.equals("3")?"selected":""); %>>x</option>
 		<option value="4" <% out.println(op.equals("4")?"selected":""); %>>/</option>
 	</select>
-	<input type="number" name="y" value="<%= strY %>" />
+	<input type="number" id="y" name="y" value="<%= strY %>" />
 	<input type="submit" value="=" />
 	<span><%= strResult %></span>
 </form>
