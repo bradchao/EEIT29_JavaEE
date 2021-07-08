@@ -50,6 +50,7 @@ public class Brad22 extends HttpServlet {
 				}
 			}catch(Exception e) {
 				System.out.println(e);
+				// SC => Status Code狀態碼 200, 404, 403, 405, 500
 				response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
 						"Server Busy");
 			}
@@ -63,7 +64,7 @@ public class Brad22 extends HttpServlet {
 	private boolean login(String account, String passwd) throws Exception {
 		boolean ret = false;
 		
-		String sql = "SELECT * FROM member WHERE account = ?";
+		String sql = "ELECT * FROM member WHERE account = ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, account);
 		ResultSet rs = pstmt.executeQuery();
