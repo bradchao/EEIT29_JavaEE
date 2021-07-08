@@ -21,7 +21,7 @@
 本期要出v2: 
 <% out.println(lottery); %>
 <hr />
-本期要出v3: 
+本期要出v3:
 <%= lottery  %>
 
 

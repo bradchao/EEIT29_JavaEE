@@ -19,7 +19,21 @@
 			for (int k=0; k<2; k++){
 				out.println("<tr>");
 				for (int j=2; j<=5; j++){
-					out.println("<td>");
+					if ( k % 2 == 0){
+						if (j % 2 == 0){
+							out.println("<td bgcolor='yellow'>");
+						}else{
+							out.println("<td bgcolor='pink'>");
+						}
+					}else{
+						if (j % 2 != 0){
+							out.println("<td bgcolor='yellow'>");
+						}else{
+							out.println("<td bgcolor='pink'>");
+						}
+					}
+					
+					
 					for (int i = 1; i<=9; i++){
 						int newj = j + k*4;
 						result = newj * i ;
