@@ -3,6 +3,8 @@ package tw.brad.javaee;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Properties;
 
 import javax.servlet.ServletException;
@@ -10,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import tw.brad.myclasses.BCrypt;
 
 @WebServlet("/Brad22")
 public class Brad22 extends HttpServlet {
@@ -36,12 +40,18 @@ public class Brad22 extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String account = request.getParameter("account");
 		String passwd = request.getParameter("passwd");
-		
+		// 老師 22號 java 的 41行 可以再說一次嗎?
 		if (account != null) {
-			if (login(account, passwd)) {
-				response.sendRedirect("main.html");
-			}else {
-				response.sendRedirect("brad22.html");
+			try {
+				if (login(account, passwd)) {
+					response.sendRedirect("main.html");
+				}else {
+					response.sendRedirect("brad22.html");
+				}
+			}catch(Exception e) {
+				System.out.println(e);
+				response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+						"Server Busy");
 			}
 		}
 	}
@@ -50,9 +60,22 @@ public class Brad22 extends HttpServlet {
 	// `account` VARCHAR(100) 
 	// CHARACTER SET utf8
 	// COLLATE utf8_bin;
-	private boolean login(String account, String passwd) {
+	private boolean login(String account, String passwd) throws Exception {
+		boolean ret = false;
 		
-		return false;
+		String sql = "SELECT * FROM member WHERE account = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, account);
+		ResultSet rs = pstmt.executeQuery();
+		
+		if (rs.next()) {
+			String hashPasswd = rs.getString("passwd");
+			if (BCrypt.checkpw(passwd, hashPasswd)) {
+				ret = true;
+			}
+		}
+		
+		return ret;
 	}
 	
 	
