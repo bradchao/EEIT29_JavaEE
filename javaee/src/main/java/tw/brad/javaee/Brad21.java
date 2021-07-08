@@ -44,6 +44,8 @@ public class Brad21 extends HttpServlet {
 		String passwd = request.getParameter("passwd");
 		String realname = request.getParameter("realname");
 		
+		//account = account.toUpperCase();
+		
 		try {
 			if (!isAccountDup(account)) {
 				int row = addMember(account, passwd, realname);

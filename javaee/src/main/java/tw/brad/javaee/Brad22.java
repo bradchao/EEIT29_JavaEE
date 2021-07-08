@@ -45,9 +45,13 @@ public class Brad22 extends HttpServlet {
 			}
 		}
 	}
-	
-	
+	// 區分大小寫
+	// ALTER TABLE `member` MODIFY
+	// `account` VARCHAR(100) 
+	// CHARACTER SET utf8
+	// COLLATE utf8_bin;
 	private boolean login(String account, String passwd) {
+		
 		return false;
 	}
 	
