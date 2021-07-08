@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Properties;
 
 import javax.servlet.ServletException;
@@ -44,12 +45,30 @@ public class Brad21 extends HttpServlet {
 		String realname = request.getParameter("realname");
 		
 		try {
-			int row = addMember(account, passwd, realname);
-			System.out.println(row);
+			if (!isAccountDup(account)) {
+				int row = addMember(account, passwd, realname);
+				System.out.println(row);
+			}else {
+				System.out.println(account + ":XX");
+			}
 		}catch(Exception e) {
 			System.out.println(e.toString());
 		}
 		
+	}
+	
+	// 老師 count(*) as count 可以再說一次嗎
+	private boolean isAccountDup(String account) throws Exception {
+		// SELECT FROM WHERE GROUP HAVING ORDER LIMIT
+		// join
+		String sql = "SELECT count(*) AS count FROM member WHERE account = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, account);
+		ResultSet rs = pstmt.executeQuery();
+		rs.next();
+		int count = rs.getInt("count");
+		
+		return count > 0;
 	}
 	
 	private int addMember(String account, String passwd, String realname) 
