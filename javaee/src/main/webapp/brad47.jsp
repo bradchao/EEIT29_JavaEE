@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	// EL => ${ } param 隱含參數物件
+	//String account = request.getParameter("account");
+	// EL => ${param } param 隱含參數物件
+	// 執行後也是  javax.el.ELException: Failed to parse the expression [${ }] 請問該怎麼解決呢
 %>
 
 <!DOCTYPE html>
@@ -19,6 +21,22 @@
 Account: ${member.account }<br />
 Realname: ${member.realname }<br />
 Age: ${member.age }<br />
+<hr />
+<jsp:declaration>
+	int a;
+	String b;
+</jsp:declaration>
+<jsp:scriptlet>
+	a = 10;
+	b = "Brad";
+</jsp:scriptlet>
+a = <jsp:expression>a</jsp:expression>
+b = <jsp:expression>b</jsp:expression>
+<hr />
+Member: ${member }<br>
+Member: <%= member %><br>
+Member: <% out.println(member); %>
+
 
 </body>
 </html>
