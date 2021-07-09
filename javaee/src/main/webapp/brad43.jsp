@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String name = request.getParameter("name");
-	int lottery = (int)(Math.random()*49+1);
-%>
+	request.setAttribute("k1", "v1");
+	request.setAttribute("k2", "v2");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +11,10 @@
 <title>Brad Big Company</title>
 </head>
 <body>
-
-<h1>Brad Big Company</h1>
+before
 <hr />
-Hello, <%= name %><br />
-Lottery = <%= lottery %>
+<%@ include file="brad44.jsp" %>
 <hr />
-<%@ include file="brad40.jsp" %>
-
-<hr />
-Copyleft ....
-
+after
 </body>
 </html>
