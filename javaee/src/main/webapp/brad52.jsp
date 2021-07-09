@@ -26,7 +26,9 @@ y = ${requestScope.y }<br />
 <c:set target="${member }" property="age">18</c:set>
 
 ${member.account } : ${member.realname }:${member.age }<br />
-
+${member }<br />
+<c:remove var="member"/>
+${member }<br />
 
 
 
