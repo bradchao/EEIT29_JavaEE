@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%
+// 老師，id 就等於我們宣告的物件變數嗎
+%>
 <jsp:useBean id="member" class="tw.brad.myclasses.Member"></jsp:useBean>
 <jsp:setProperty property="account" value="mark" name="member"/>
 <jsp:setProperty property="realname" value="Mark Chen" name="member"/>
