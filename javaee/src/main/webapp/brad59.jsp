@@ -36,6 +36,7 @@
 		<th>account</th>
 		<th>realname</th>
 		<th>Del</th>
+		<th>Edit</th>
 	</tr>
 	<script>
 		function delConfirm(account){
@@ -49,6 +50,7 @@
 			<td>${row.account }</td>
 			<td>${row.realname }</td>
 			<td><a href="?delid=${row.id }" onclick="return delConfirm('${row.account }');">Del</a></td>
+			<td><a href="brad61.jsp?editid=${row.id }">Edit</a></td>
 		</tr>
 	</c:forEach>
 </table>

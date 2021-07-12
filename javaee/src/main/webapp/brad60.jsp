@@ -25,7 +25,7 @@
 <title>Brad Big Company</title>
 </head>
 <body>
-
+Add
 <form action="brad60.jsp" >
 	Account:<input type="text" name="account" /><br>
 	Password:<input type="password" name="passwd" /><br>
