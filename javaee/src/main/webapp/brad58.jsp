@@ -12,6 +12,8 @@
 
 <c:set var="page" value="${param.page == null ? 1 : param.page }" />
 <c:set var="start" value="${(page - 1) * rpp }" />
+<c:set var="prev" value="${page == 1 ? 1 : page - 1 }" />
+<c:set var="next" value="${page == lastpage ? lastpage : page + 1 }" />
 
 <sql:query var="rs">
 	SELECT * FROM food LIMIT ${start }, ${rpp }
@@ -32,10 +34,10 @@
 
 <h1>Brad Big Company</h1>
 <hr />
-<a href="?page=${page - 1 }">
+<a href="?page=${prev }">
 	<button type="button" class="btn btn-primary">上一頁</button>
 </a>
-<a href="?page=${page + 1 }">
+<a href="?page=${next }">
 	<button type="button" class="btn btn-primary">下一頁</button>
 </a>
 
