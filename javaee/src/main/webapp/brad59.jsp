@@ -9,6 +9,13 @@
 	password="root"
 	/>
 
+<c:if test="${! empty param.delid }">
+	<sql:update>
+		DELETE FROM member WHERE id = ?
+		<sql:param>${param.delid }</sql:param>
+	</sql:update>
+</c:if>
+
 <sql:query var="result">
 	SELECT * FROM member ORDER BY id DESC
 </sql:query>
@@ -28,12 +35,20 @@
 		<th>id</th>
 		<th>account</th>
 		<th>realname</th>
+		<th>Del</th>
 	</tr>
+	<script>
+		function delConfirm(account){
+			var isDel = confirm("Delete " + account + "?");
+			return isDel;
+		}
+	</script>
 	<c:forEach items="${result.rows }" var="row">
 		<tr>
 			<td>${row.id }</td>
 			<td>${row.account }</td>
 			<td>${row.realname }</td>
+			<td><a href="?delid=${row.id }" onclick="return delConfirm('${row.account }');">Del</a></td>
 		</tr>
 	</c:forEach>
 </table>
