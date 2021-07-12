@@ -1,3 +1,4 @@
+<%@page import="javax.servlet.jsp.jstl.sql.Result"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -8,12 +9,23 @@
 	user="root"
 	password="root"
 	/>
-<c:set var="rpp" value="10" />	
 
+<sql:query var="rs1">
+	SELECT * FROM food
+</sql:query>
+
+<c:set var="rpp" value="10" />	
+<%
+	Result result = (Result)pageContext.getAttribute("rs1");
+	int rowCount = result.getRowCount();
+	int rpp = Integer.parseInt((String)pageContext.getAttribute("rpp"));
+	int total = rowCount % rpp == 0 ?  rowCount/rpp : rowCount/rpp + 1; 
+	pageContext.setAttribute("total", total);
+%>
 <c:set var="page" value="${param.page == null ? 1 : param.page }" />
 <c:set var="start" value="${(page - 1) * rpp }" />
 <c:set var="prev" value="${page == 1 ? 1 : page - 1 }" />
-<c:set var="next" value="${page == lastpage ? lastpage : page + 1 }" />
+<c:set var="next" value="${page == total ? total : page + 1 }" />
 
 <sql:query var="rs">
 	SELECT * FROM food LIMIT ${start }, ${rpp }
