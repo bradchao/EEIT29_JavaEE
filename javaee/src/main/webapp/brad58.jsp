@@ -22,8 +22,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Brad Big Company</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </head>
 <body>
+
+<h1>Brad Big Company</h1>
+<hr />
+<a href="?page=${page - 1 }">
+	<button type="button" class="btn btn-primary">上一頁</button>
+</a>
+<a href="?page=${page + 1 }">
+	<button type="button" class="btn btn-primary">下一頁</button>
+</a>
 
 <table border="1" width="100%">
 	<tr>
