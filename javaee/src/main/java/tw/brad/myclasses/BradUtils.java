@@ -26,4 +26,8 @@ public class BradUtils {
 		}
 		return result;
 	}
+	public static int myScore() {
+		int score = (int)(Math.random()*101);
+		return score;
+	}
 }
